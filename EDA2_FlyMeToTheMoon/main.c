@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 struct air
 {
     char Id[5];

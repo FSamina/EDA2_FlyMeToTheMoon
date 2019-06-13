@@ -1,5 +1,6 @@
 struct air
 {
+    bool flag;
     char Id[5];
     short hour;
     short minute;
