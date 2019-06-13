@@ -1,4 +1,7 @@
 #include <stdio.h>
+
+const int voosPorAir =150;
+
 struct air
 {
     char Id[5];
@@ -20,10 +23,14 @@ struct voos
     short tempTotal;
 };
 
+struct flightsPerAir{
+        struct voos voosTemp[voosPorAir];
+};
 
-
+/*
 int main(void)
 {
     printf("Size of air = %lu Bytes  \nSize of voos = %lu  Bytes \n", sizeof(struct air),sizeof(struct voos));
     return -1;
 }
+ */
