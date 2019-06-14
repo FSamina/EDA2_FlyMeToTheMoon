@@ -116,7 +116,7 @@ void display() {
     printf("\n");
 }
 
-
+/*
 int main() {
     dummyItem = (struct air*) malloc(sizeof(struct air));
     dummyItem->flag = true; //foi "removido"
@@ -145,4 +145,4 @@ int main() {
     }
 
     display();
-}
+}*/
