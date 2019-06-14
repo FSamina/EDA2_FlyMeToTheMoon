@@ -53,4 +53,8 @@ int main(){
     //write(file,0,&tempnada);
     printf("%s\n",read(file,0).voosTemp->Id);
 
-}*/
+}
+
+// gitingnoreTEST
+
+ */
