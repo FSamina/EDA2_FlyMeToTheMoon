@@ -6,6 +6,7 @@ struct air
     char IdPrecessor[5];
     short tempoTotalDiskt;
 
+    bool flag;
 };
 
 struct voos

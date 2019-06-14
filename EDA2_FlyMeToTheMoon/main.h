@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+
+#define voosPorAir 200
+
 struct air
 {
     char Id[5];
@@ -23,7 +26,7 @@ struct voos
 
 
 struct flightsPerAir{
-//        struct voos voosTemp[voosPorAir];
+        struct voos voosTemp[voosPorAir];
 };
 
 /*
