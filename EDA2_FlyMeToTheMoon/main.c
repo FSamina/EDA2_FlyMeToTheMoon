@@ -53,18 +53,38 @@ void intrudAir(char key[5],short hLocal,short mLocal)//recebe como argumento cod
 
 int main(void)
 {
-    /*  PARA TESTAR
-    dummyItem = (struct air*) malloc(sizeof(struct air));
+    //testar hastable
+    dummyItem =  malloc(sizeof(struct air));
     dummyItem->flag = true; //foi "removido"
-    struct air *itemA = (struct air*) malloc(sizeof(struct air));
-    char  arr[5] = "LISB";
-    strcpy(itemA->Id,arr);
+    
+    //5 Aeroportos de teste
+    struct air *itemA = malloc(sizeof(struct air));
+    char  arrA[5] = "LISB";
+    strcpy(itemA->Id,arrA);
     itemA->flag =false;
-
-
     insert(itemA);
-    insert(itemA);
-    item = search("LISB");
+    struct air *itemB = malloc(sizeof(struct air));
+    char arrB[5] = "MADR";
+    strcpy(itemB->Id,arrB);
+    itemB->flag =false;
+    insert(itemB);
+    struct air *itemC =  malloc(sizeof(struct air));
+    char arrC[5] = "NY";
+    strcpy(itemC->Id,arrC);
+    itemC->flag =false;
+    insert(itemC);
+    struct air *itemD =  malloc(sizeof(struct air));
+    char arrD[5] = "PORT";
+    strcpy(itemD->Id,arrD);
+    itemD->flag =false;
+    insert(itemD);
+    struct air *itemE =  malloc(sizeof(struct air));
+    char arrE[5] = "LIBA";
+    strcpy(itemE->Id,arrE);
+    itemE->flag =false;
+    insert(itemE);
+
+    item = search("PORT");
 
     if(item != NULL) {
         printf("Element found: %s\n", item->Id);
@@ -72,15 +92,15 @@ int main(void)
         printf("Element not found\n");
     }
 
-    delete(item);
-    item = search("LISB");
+    // delete(item);
+    // item = search("LISB");
 
-    if(item != NULL) {
-        printf("Element found: %s\n", item->Id);
-    } else {
-        printf("Element not found\n");
-    }
+    // if(item != NULL) {
+    //     printf("Element found: %s\n", item->Id);
+    // } else {
+    //     printf("Element not found\n");
+    // }
 
-    display(); */
+    display();
     return -1;
 }
