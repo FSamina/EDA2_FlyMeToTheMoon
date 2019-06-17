@@ -4,13 +4,10 @@
 #include <stdbool.h>
 #include "hashtable.h"
 
-#define SIZE 200003
 
 
 
-struct air * hashArray[SIZE];
-struct air* dummyItem;
-struct air* item;
+
 
 int hashCode(char key[5])
 {
@@ -48,7 +45,7 @@ struct air *search(char key[5]) {
     return NULL;
 }
 
-void insert(struct air* novoAir) {
+bool insert(struct air* novoAir) {
 
     //struct air *item = (struct air*) malloc(sizeof(struct air));
     char key[5];
@@ -56,8 +53,16 @@ void insert(struct air* novoAir) {
     //get the hash
     int hashIndex = hashCode(key);
 
-    //move in array until an empty or deleted cell
-    while(hashArray[hashIndex] != NULL && hashArray[hashIndex]->flag!=true) {
+    //move in array until an empty or deleted cel
+    while(hashArray[hashIndex] != NULL && hashArray[hashIndex]->flag!=true)
+    {
+        if (strcmp(hashArray[hashIndex]->Id, novoAir->Id)==0)//Para não deixar que haja dois aeroportos iguais na hastable
+        {
+
+
+            return false;
+        }
+
         //go to next cell
         ++hashIndex;
 
@@ -66,6 +71,8 @@ void insert(struct air* novoAir) {
     }
 
     hashArray[hashIndex] = novoAir;
+    return true;
+
 }
 
 struct air* delete(struct air* item) {
@@ -116,33 +123,4 @@ void display() {
     printf("\n");
 }
 
-/*
-int main() {
-    dummyItem = (struct air*) malloc(sizeof(struct air));
-    dummyItem->flag = true; //foi "removido"
-    struct air *itemA = (struct air*) malloc(sizeof(struct air));
-    char  arr[5] = "LISB";
-    strcpy(itemA->Id,arr);
-    itemA->flag =false;
 
-
-    insert(itemA);
-    item = search("LISB");
-
-    if(item != NULL) {
-        printf("Element found: %s\n", item->Id);
-    } else {
-        printf("Element not found\n");
-    }
-
-    delete(item);
-    item = search("LISB");
-
-    if(item != NULL) {
-        printf("Element found: %s\n", item->Id);
-    } else {
-        printf("Element not found\n");
-    }
-
-    display();
-}*/

@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#import "main.h"
+#include "aeroportoVoo.h"
+
 
 #define FNAME "flightTable.bin"
 
