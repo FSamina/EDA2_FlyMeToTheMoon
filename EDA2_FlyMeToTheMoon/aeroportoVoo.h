@@ -18,6 +18,7 @@ struct air
 struct voos
 {
     char Id[7];
+    char IdAirPartida[5];
     char IdAirChegada[5];
     short hourPartida;
     short minutePartida;

@@ -23,7 +23,7 @@ void intrudVoo(char idVoo[7],char IdAirPartida[5],char IdAirChegada[5],short hPa
     struct voos *novoVoo = (struct voos*) malloc(sizeof(struct voos));//criamos o novo aeroporto
     strcpy(novoVoo->Id,idVoo);
     strcpy(novoVoo->IdAirChegada,IdAirChegada);
-    //meter o id do aerporto de partida?
+    strcpy(novoVoo->IdAirPartida,IdAirPartida);
     novoVoo->hourPartida =hPartida;
     novoVoo->minutePartida=mPartida;
     novoVoo->tempTotal=tempoDeVoo;
