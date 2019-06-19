@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "hashtable.h"
+#include "airTable.c"
 
 
 //TR <aeroporto-partida> <aeroporto-destino> <hora-chegada-aeroporto>
@@ -102,5 +103,14 @@ int main(void)
     // }
 
     display();
+
+
+    //disk save
+    FILE *file;
+    file = openTable();
+    exitTable(file,hashArray);
+
+
+
     return -1;
 }

@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 
-#define voosPorAir 200
+#define voosPorAir 150
 
 struct air
 {

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "aeroportoVoo.h"
+#include "hashtable.h"
 
 
 #define FNAME "flightTable.bin"
@@ -41,6 +41,7 @@ FILE *abrir() {
 
     return file;
 }
+
 /*
 int main(){
     FILE *file;
@@ -53,9 +54,11 @@ int main(){
     tempnada.voosTemp[0]=temp;
     //write(file,0,&tempnada);
     printf("%s\n",read(file,0).voosTemp->Id);
-
 }
-
-// gitingnoreTEST
-
+*/
+/*
+ * todo:
+ * refazer a inserção: inserir voos diretamemte(adicionar um apontador)
+ * remoção: carregar os voos todos para disco e desfragmentar.
+ *
  */
