@@ -3,11 +3,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "hashtable.h"
-
-
-
-
-
+//Esta hashtabkle foi implementada com base neste site :
+// https://www.tutorialspoint.com/data_structures_algorithms/hash_table_program_in_c.htm
 
 int hashCode(char key[5])
 {

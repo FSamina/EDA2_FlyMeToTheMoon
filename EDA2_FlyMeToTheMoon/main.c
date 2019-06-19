@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
-#include "airTable.c"
+#include "airTable.h"
 
 
 //TR <aeroporto-partida> <aeroporto-destino> <hora-chegada-aeroporto>
