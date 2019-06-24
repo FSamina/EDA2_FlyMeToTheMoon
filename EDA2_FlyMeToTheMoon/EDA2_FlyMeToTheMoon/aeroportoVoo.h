@@ -7,6 +7,7 @@ struct voosIds
 {
     char Id[7];
     char IdAirPartida[5];
+    int indexProprio;
     int index;
     bool flagDesativo;
 };

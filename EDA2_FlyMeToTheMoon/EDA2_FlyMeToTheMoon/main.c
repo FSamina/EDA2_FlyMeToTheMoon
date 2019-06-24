@@ -8,16 +8,59 @@
 #define ID_AIR_SIZE 5
 #define ID_VOO_SIZE 7
 
+// INITIALIZE-SINGLE-SOURCE(G, s)
+//    1 for each vertex v in G.V do
+// 2 v.d <- INFINITY // peso do caminho mais curto de s a v
+// 3 v.p <- NIL // predecessor de v nesse caminho
+// 4 s.d <- 0
+
+void initializeSource(struct air*  aeroportoPartida)
+{
+    aeroportoPartida->tempoTotalDiskt=0;
+}
+void relax(struct air*  u,struct air*  v)
+{
+    if (u->tempoTotalDiskt /* + Tempo do caminho(u ,v) */ < v->tempoTotalDiskt)
+    {
+        v->tempoTotalDiskt = u->tempoTotalDiskt /* + Tempo do caminho(u ,v) */;
+        strcpy(v->IdPrecessor,u->IdPrecessor);
+    }
+    
+   
+    
+}
+// RELAX(u, v, w)
+//    1 if u.d + w(u,v) < v.d then
+//    2     v.d <- u.d + w(u,v)
+// 3 v.p <- u
+void dijkstra(struct air*  aeroportoPartida)
+{
+    initializeSource(aeroportoPartida);
+    //temos de ter uma queue com prioridade
+}
+
+
 //TR <aeroporto-partida> <aeroporto-destino> <hora-chegada-aeroporto>
 void calcViagem(char IdAirPartida[5],char IdAirChegada[5],short hourPartida,short minutePartida)
 {
-
+    //Podes começar a pensar sobre isto caralho!
 
 }
 //FD <aeroporto-partida> <aeroporto-destino> <hora-partida>
 void delVoo(char idVoo[7])
 {
-
+    struct voosIds* tempvoo  = (struct voosIds*) malloc(sizeof(struct voosIds));
+    int hash;
+    tempvoo= searchVoos(idVoo);
+    tempvoo->flagDesativo=true;//desativamos o voo na hastable de todos os voos
+    hash = tempvoo->index;
+    if (strcmp(hashArray[hash]->Id,idVoo)==0)//confirmar novamente se corresponde ao que queremos
+    {
+        hashArray[hash]->flag=true;//desativamos  o voo  hashtable normal
+    }
+    hashVoos[tempvoo->indexProprio]=tempvoo;//recreve o voo na hashtable de todos os voos( para actualizar que agora é um voo desativado)
+    
+    
     
 
 }
@@ -35,10 +78,13 @@ void intrudVoo(char idVoo[7],char IdAirPartida[5],char IdAirChegada[5],short hPa
     strcpy(vooParaIds->Id,idVoo);
     strcpy(vooParaIds->IdAirPartida,IdAirPartida);
     vooParaIds->index=hashIndex;
+    vooParaIds->flagDesativo=false;
     novoVoo->hourPartida =hPartida;
     novoVoo->minutePartida=mPartida;
     novoVoo->tempTotal=tempoDeVoo;
-    
+    //nao consigo enviar para o dicos todo pipi 
+    //enviar para a hashtable de todos os voos
+    insertVoos(vooParaIds);
     
     
 
@@ -46,8 +92,6 @@ void intrudVoo(char idVoo[7],char IdAirPartida[5],char IdAirChegada[5],short hPa
     
    
     //write(fileVoo,hashIndex,pos,novoVoo);
-    //falta inserir (devo inserir os voos numa hastable tambem?)
-
 }
 
 //AI <código> <fuso-hor´ario>
@@ -59,6 +103,8 @@ void intrudAir(char key[5],short hLocal,short mLocal)//recebe como argumento cod
     novoAir->flag =false;
     novoAir->hour=hLocal;
     novoAir->minute=mLocal;
+    novoAir->tempoTotalDiskt=-1;
+    strcpy(novoAir->IdPrecessor,NULL);
     check = insert(novoAir);
     printf("HORA %hd  , minuto %hd ",novoAir->hour,novoAir->minute);
     if (check)

@@ -5,9 +5,9 @@
 //aproxim 7mb
 struct voosIds* hashVoos[SIZE_VOOS];
 
-int hashCodeVoos(char key[SIZE_KEYS]);
+unsigned int hashCodeVoos(char key[SIZE_KEYS]);
 
-int  searchVoos(char key[SIZE_KEYS]);
+struct voosIds* searchVoos(char key[SIZE_KEYS]);
 
 bool insertVoos(struct voosIds* novoVoo);
 
